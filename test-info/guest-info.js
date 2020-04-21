@@ -13,3 +13,5 @@ const guestInfo = [{
     "name": "Kelvin Schiller"
   }
 ]
+
+export default guestInfo
