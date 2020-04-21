@@ -1,0 +1,8 @@
+@mixin login-image($background-image){
+  background-image: url($background-image);
+}
+
+@mixin add-hover-state($cursor-state) {
+  cursor: $cursor-state;
+  transform: scale(1.04);
+}

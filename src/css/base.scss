@@ -1,6 +1,372 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+@import 'variables';
+@import 'mixins';
+
+.clearfix:after {
+  content: ' ';
+  display: table;
+  clear: both;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+// MAIN SECTIONS
 
 body {
-  background-color: $primary-background;
+  @include login-image($background-image);
+  text-align: center;
+  font-family: $primary-font;
+}
+
+header {
+  margin-top: 5em;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+}
+
+#login-container {
+  margin-top: 7em;
+  background-repeat: repeat;
+  background-size: contain;
+  margin-bottom: 20em;
+  height: 25em;
+}
+
+.guest-view,
+.manager-view {
+  border: 1em solid $window-color;
+  background-color: #7FE5E5;
+  padding: 1em;
+  margin: 2em;
+  padding-bottom: 3em;
+  border-radius: 1em;
+  width: 40%;
+  float: right;
+
+  .manage-guests {
+    border: 1em solid $window-color;
+    background-color: #7FE5E5;
+    padding: 1em;
+    margin: 2em;
+    padding-bottom: 3em;
+    border-radius: 1em;
+    width: 40%;
+    float: left;
+  }
+
+  .info-block,
+  .title-block {
+    margin-bottom: 5em;
+  }
+
+  p {
+    padding-top: 0.2em;
+    font-size: 1em;
+  }
+}
+
+.schedule-stay {
+  background-color: #7FE5E5;
+  border: 1em solid $text-color;
+  padding: 1em;
+  margin: 2em;
+  width: 50%;
+}
+// TEXT
+
+h1 {
+  color: $text-color;
+  letter-spacing: 0.3em;
+  font-size: 4em;
+}
+
+h2 {
+  color: $secondary-background-color;
+  font-family: $secondary-font;
+  font-size: 3em;
+}
+
+h3 {
+  letter-spacing: 0.3em;
+  font-size: 1.8em;
+}
+
+h4 {
+  font-family: $secondary-font;
+  font-weight: 300;
+}
+
+h5 {
+  font-size: 1em;
+  letter-spacing: 0.2em;
+  margin: 0.2em;
+}
+
+h6 {
+  font-family: $secondary-font;
+  font-style: italic;
+  font-size: 3em;
+  color: $secondary-background-color;
+}
+
+p {
+  padding-top: 3em;
+  margin-bottom: 0.5em;
+}
+
+input {
+  color: $text-color;
+  background-color: $secondary-background-color;
+  border: none;
+  width: 100%;
+  font-size: 1em;
+  padding: 0.75em;
+  font-family: $primary-font;
+
+  &:hover {
+    @include add-hover-state(text);
+  }
+}
+
+select {
+  background-color: $secondary-background-color;
+  font-size: 1em;
+}
+// BUTTONS
+
+button {
+  color: $secondary-background-color;
+  background-color: $text-color;
+  border: none;
+  padding: 0.75em;
+  width: 50%;
+  font-size: 1em;
+  letter-spacing: 0.3em;
+  margin-top: 3em;
+
+  &:hover {
+    @include add-hover-state(pointer);
+  }
+}
+
+#guest-button,
+#manager-button {
+  padding: 2em;
+  width: 20em;
+  margin: 10em 2em;
+}
+
+#cancel-login-button {
+  margin-top: 1em;
+}
+
+.manager-go-back-button {
+  margin: 1em;
+  width: 18em;
+}
+
+.logout-button {
+  margin: 1em;
+  width: 12em;
+}
+
+#find-available-rooms-button,
+#find-customer-button {
+  width: 40%;
+  margin-top: 0;
+  background-color: $window-color;
+  color: $text-color;
+  font-weight: 600;
+}
+
+.section-footer-button {
+  width: 49%;
+  margin-top: 0;
+}
+
+.show-filter-options-button {
+  margin-right: 0.5em;
+  margin-top: 0;
+}
+
+.complete-booking-button {
+  margin-top: 0;
+}
+
+.delete-booking-button {
+  margin-top: -2em;
+  margin-bottom: 1.5em;
+}
+// INPUTS
+
+.login-inputs {
+  width: 50%;
+  text-align: left;
+}
+
+#customer-input,
+#start-date {
+  width: 49%;
+}
+// POP-UPS
+
+.pop-up {
+  position: absolute;
+  background-color: $window-color;
+  width: 100%;
+  height: 100%;
+  border: 10em solid $primary-background-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h3 {
+    margin-bottom: 1em;
+  }
+
+  h5 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  button {
+    margin: 1em;
+    width: 50%;
+  }
+
+  .logout-button {
+    background-color: $primary-background-color;
+    color: $text-color;
+    font-weight: 600;
+  }
+
+  p {
+    padding-top: 0.5em;
+  }
+}
+// INFO SECTIONS
+
+#available-rooms,
+#customer-bookings {
+  border: 1em solid white;
+  height: 30em;
+  margin: 1em 0;
+  overflow: scroll;
+}
+
+#guest-booking-info,
+.manager-bookings-list {
+  border: 1em solid white;
+  height: 25em;
+  margin: 1em 0 2em;
+  overflow: scroll;
+  padding: 0.5em;
+
+  section {
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  button {
+    margin: 0 0 0 2em;
+  }
+}
+
+.individual-rooms {
+  padding: 0.5em;
+}
+// FORMATING DIVS
+
+.white-line {
+  border: 0.2em solid $secondary-background-color;
+  background-color: $secondary-background-color;
+  margin: 0.5em 0 1em;
+}
+
+.align-left {
+  text-align: left;
+  width: 40%;
+}
+
+#align-left-full {
+  width: 100%;
+
+  button,
+  input {
+    width: 49%;
+  }
+}
+
+.inline {
+  display: flex;
+  justify-content: space-between;
+}
+// MISC
+
+.login-background {
+  background-color: $window-color;
+  width: 40%;
+  height: 30em;
+  position: absolute;
+  margin: -3em 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1em;
+}
+
+.error {
+  margin-bottom: -2em;
+  font-style: italic;
+}
+
+.dashboard-header {
+  background-color: $window-color;
+  margin-top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-size: 7em;
+  background-repeat: no-repeat;
+}
+
+.title-graphic {
+  margin-left: 2em;
+}
+
+#reward-remainder {
+  color: $secondary-background-color;
+  font-family: $secondary-font;
+  font-style: italic;
+  font-size: 1.2em;
+}
+// STATES
+
+.hoverable {
+  &:hover {
+    @include add-hover-state(pointer);
+    background-color: $secondary-background-color;
+  }
+}
+
+.clicked {
+  @include add-hover-state(pointer);
+  background-color: $secondary-background-color;
+  border: 1em solid $window-color;
+}
+
+.hide {
+  display: none;
 }
