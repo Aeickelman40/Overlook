@@ -1,13 +1,107 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <title>Webpack Starter Kit</title>
-  </head>
-  <body>
-    <h1>Webpack Starter Kit</h1>
+<html lang='en-US'>
 
-    <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
+<head>
+  <title>The Overlook Hotel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
 
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
-  </body>
+<body>
+  <header>
+    <h1>Welcome to the Overlook</h1>
+    <h2>A Mental Retreat for Mod 2 Students</h2>
+  </header>
+  <section id='login-container'>
+    <section class='login-background'>
+      <section class='login-inputs'>
+        <label for='username-input'>
+          <p class='login-text'>USERNAME:</p>
+        </label>
+        <input type='text' name='username-text' id='username-input' value='' alt='Enter your username here.'>
+        <label for='password-input'>
+          <p class='login-text'>PASSWORD:</p>
+        </label>
+        <input type='password' name='password-text' id='password-input' value='' alt='Enter your password here.'>
+      </section>
+      <p class='error hide' id='login-error'>The username and password do not match!</p>
+      <button type='button' name='login-button' id='login-button' alt='Click this button to log in.'>LOG IN</button>
+    </section>
+  </section>
+  <section class='manager-view hide'>
+    <section class='title-block'>
+      <h3 class='section-header'>Daily Manager Report</h3>
+      <section class='white-line'></section>
+    </section>
+    <section id='info-big-block'>
+      <section class='info-block'>
+        <h5>Rooms Available For Today</h5>
+        <h6 id='rooms-available'></h6>
+      </section>
+      <section class='info-block'>
+        <h5>Total Revenue</h5>
+        <h6 id='total-revenue'></h6>
+      </section>
+      <section class='info-block'>
+        <h5>Percentage of Rooms Occupied</h5>
+        <h6 id='percent-occupied'></h6>
+      </section>
+    </section>
+  </section>
+  <section class='manage-guests hide'>
+    <h3 class='section-header'>MANAGE GUEST BOOKINGS</h3>
+    <section class='white-line'></section>
+    <section class='align-left' id='align-left-full'>
+      <label for='customer-input'>
+        <h5>CUSTOMER NAME:</h5>
+      </label>
+      <section class='inline'>
+        <input type='text' name='customer-name' value='' id='customer-input' alt="Enter the guest's name here">
+        <button type='button' name='find-customer-button' id='find-customer-button'>VIEW GUEST PROFILE</button>
+      </section>
+    </section>
+  </section>
+  <section id='guest-filter-page' class='hide pop-up'>
+    <h5>FILTER BY:</h5>
+    <select name='filter-rooms-selection'>
+      <option value='single room'>SINGLE ROOM</option>
+      <option value='junior suite'>JUNIOR SUITE</option>
+      <option value='suite'>SUITE</option>
+      <option value='residential suite'>RESIDENTIAL SUITE</option>
+    </select>
+    <button type='button' name='filter-button' class='filter-button'>FILTER</button>
+  </section>
+  <section class='guest-view hide'>
+    <h3 class='section-header'>YOUR BOOKINGS</h3>
+    <section class='white-line'></section>
+    <section id='guest-booking-info'></section>
+    <h5>TOTAL SPENT:</h5>
+    <h6 id='total-spent'></h6>
+  </section>
+  <section class='schedule-stay hide'>
+    <h3 class='section-header'>SCHEDULE A STAY</h3>
+    <section class='white-line'></section>
+    <section class='align-left' id='align-left-full'>
+      <label for='start-date'>
+        <h5>DATE:</h5>
+      </label>
+      <section class='inline'>
+        <input type='date' name='start-date' value='' id='start-date' alt='Enter the date here.'> <button type='button' name='find-available-rooms-button' id='find-available-rooms-button'>FIND ROOMS</button>
+      </section>
+    </section>
+    <section id='available-rooms'>
+    </section>
+    <section class='inline' id='two-buttons'>
+      <button type='button' name='show-filter-options-button' class='show-filter-options-button'>FILTER ROOMS</button>
+      <button type='button' name='complete-booking-button' class='complete-booking-button'>BOOK ROOM</button>
+    </section>
+  </section>
+  <section id='guest-success-page' class='pop-up hide'>
+    <h3>CONFIRMED!</h3>
+    <p>We are so glad you are staying with us.</p>
+    <button type='button' name='book-another-button' class='book-another-button'>BOOK ANOTHER ROOM</button>
+    <button type='button' name='logout-button' class='logout-button'>LOG OUT</button>
+  </section>
+</body>
+
 </html>
