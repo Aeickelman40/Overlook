@@ -222,8 +222,7 @@ button {
   position: absolute;
   background-color: $window-color;
   width: 100%;
-  height: 100%;
-  border: 10em solid $primary-background-color;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
